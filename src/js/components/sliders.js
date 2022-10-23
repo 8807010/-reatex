@@ -1,3 +1,5 @@
+import Swiper from 'swiper';
+
 const portSlider = document.querySelector('.portfolio-section__items');
 
 const portfolioSlider = new Swiper(portSlider, {
