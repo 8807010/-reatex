@@ -1,10 +1,16 @@
-import vars from './_vars';
-import './_functions';
-import './_components';
-import './_vendor';
+// import vars from './_vars';
+// import './_functions';
+// import './_components';
+import './vendor.js';
 import './global';
 
 
-import './components/progress.js';
-import './components/sliders.js';
-import './components/accordions.js';
+import './components/progress';
+import './components/sliders';
+import './components/accordions';
+
+
+import './vendor/focus-visible';
+import './vendor/graph-accordion';
+import './vendor/swiper.min';
+
