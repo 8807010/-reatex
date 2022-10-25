@@ -1,5 +1,3 @@
-import './../vendor/graph-accordion.js';
-
 if (document.querySelector('.we-offer')) {
   const accordion1 = new GraphAccordion('.accordion-1', {
     speed: 300
