@@ -51,11 +51,11 @@ if (portSlider) {
       el.classList.remove('slider-visible');
     });
 
-  activeSlide.classList.add('slider-visible');
-  nextActiveSlide.classList.add('slider-visible');
-  nextNextActiveSlide.classList.add('slider-visible');
-});
- }
+    activeSlide.classList.add('slider-visible');
+    nextActiveSlide.classList.add('slider-visible');
+    nextNextActiveSlide.classList.add('slider-visible');
+  });
+}
 
 const testimonialsSlider = new Swiper('.testimonials__items', {
   slidesPerView: 1,
