@@ -1,4 +1,4 @@
-class GraphAccordion {
+export default class GraphAccordion {
   constructor(selector, options) {
     let defaultOptions = {
       isOpen: () => { },

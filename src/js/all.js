@@ -1,4 +1,4 @@
-import Swiper from 'swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
 
 const portSlider = document.querySelector('.portfolio-section__items');
 const relatedSlider = document.querySelector('.related-projects__items');

@@ -10,5 +10,6 @@ import './components/sliders';
 import './components/accordions';
 
 // import './vendor/focus-visible';
-// import './vendor/graph-accordion';
+import './vendor/graph-accordion';
 // import './vendor/swiper.min';
+
