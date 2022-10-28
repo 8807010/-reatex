@@ -3,6 +3,7 @@ import './_functions';
 import './_components';
 import './vendor.js';
 import './global';
+import './all';
 
 
 import './components/progress';
