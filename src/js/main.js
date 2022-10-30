@@ -9,6 +9,7 @@ import './all';
 import './components/progress';
 import './components/sliders';
 import './components/accordions';
+import './components/portfolio-tabs';
 
 // import './vendor/focus-visible';
 import './vendor/graph-accordion';
