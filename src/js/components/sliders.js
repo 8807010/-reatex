@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import './../vendor/swiper.min';
 
 const portSlider = document.querySelector('.portfolio-section__items');
 const relatedSlider = document.querySelector('.related-projects__items');
@@ -102,7 +103,10 @@ if (relatedSlider) {
   });
 }
 
-const testimonialsSlider = new Swiper('.testimonials__items', {
+
+
+
+  const testimonialsSlider = new Swiper('.testimonials__items', {
   slidesPerView: 1,
   spaceBetween: 30,
   loop: true,
@@ -112,25 +116,28 @@ const testimonialsSlider = new Swiper('.testimonials__items', {
   },
 });
 
+console.log(testimonialsSlider);
 
-const workImages = document.querySelector('.work-images-slider');
 
-if (workImages) {
-  const workSlider = new Swiper('.work-images-nav', {
-    spaceBetween: 20,
-    slidesPerView: 10,
-    freeMode: true,
-    watchSlidesProgress: true,
-  });
-  const workSlidesNav = new Swiper(workImages, {
-    spaceBetween: 20,
-    slidesPerView: 1,
-    navigation: {
-      nextEl: ".work-images__next",
-      prevEl: ".work-images__prev",
-    },
-    thumbs: {
-      swiper: workSlider,
-    },
-  });
-}
+
+// const workImages = document.querySelector('.work-images-slider');
+
+// if (workImages) {
+//   const workSlider = new Swiper('.work-images-nav', {
+//     spaceBetween: 20,
+//     slidesPerView: 10,
+//     freeMode: true,
+//     watchSlidesProgress: true,
+//   });
+//   const workSlidesNav = new Swiper(workImages, {
+//     spaceBetween: 20,
+//     slidesPerView: 1,
+//     navigation: {
+//       nextEl: ".work-images__next",
+//       prevEl: ".work-images__prev",
+//     },
+//     thumbs: {
+//       swiper: workSlider,
+//     },
+//   });
+// }
