@@ -9,60 +9,24 @@
     <main>
       @include('partials/hero-contacts.html')
       @include('partials/contacts-form.html')
-      @include('partials/contacts-info.html')
+      <!-- @include('partials/contacts-info.html') -->
     </main>
     @include('partials/footer.html')
   </div>
-  <!-- <script src="js/vendor.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/all.js"></script> -->
 
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script>
-    const historySlider = document.querySelector('.history-slider');
-
-    if (historySlider) {
-      const workSlider = new Swiper(historySlider, {
-        spaceBetween: 20,
-        slidesPerView: 1,
-        navigation: {
-          nextEl: ".history__next",
-          prevEl: ".history__prev",
-        },
+    const selects = document.querySelectorAll('.form-field__select');
+    selects.forEach(el => {
+      new Choices(el, {
+        shouldSort: false,
+        position: 'bottom',
+        searchEnabled: false,
       });
-
-      workSlider.on('slideChange', function () {
-        console.log(workSlider.realIndex);
-
-        historyBtns.forEach(el => {
-          el.classList.remove('history-nav__btn--active');
-        });
-
-        document.querySelector(`.history-nav__btn[data-index="${workSlider.realIndex}"]`).classList.add(
-          'history-nav__btn--active');
-      });
-
-      const historyBtns = document.querySelectorAll('.history-nav__btn');
-
-      historyBtns.forEach((el, idx) => {
-        el.setAttribute('data-index', idx);
-
-        el.addEventListener('click', (e) => {
-          const index = e.currentTarget.dataset.index;
-
-          historyBtns.forEach(el => {
-            el.classList.remove('history-nav__btn--active');
-          });
-
-          e.currentTarget.classList.add('history-nav__btn--active');
-
-          workSlider.slideTo(index);
-        });
-      });
-    }
-
+    });
   </script>
+
 </body>
 
 </html>

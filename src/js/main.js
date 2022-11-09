@@ -9,9 +9,11 @@ import './components/progress';
 import './components/sliders';
 import './components/accordions';
 import './components/portfolio-tabs';
+import './components/select';
 
 import './vendor/focus-visible';
 import './vendor/graph-accordion';
 import './vendor/swiper.min';
+import './vendor/choices.min';
 
 
