@@ -23,9 +23,45 @@
 
   <!-- <script src="js/all.js"></script> -->
   <!-- <script src="js/vendor.js"></script> -->
-  <script src="js/main.js"></script>
+  <!-- <script src="js/main.js"></script> -->
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    const heroSliderSpeed = 1500;
+
+    const bodyStyles = window.getComputedStyle(document.body);
+    const fooBar = bodyStyles.getPropertyValue('--hero-slider-speed'); //get
+
+    document.body.style.setProperty('--hero-slider-speed', heroSliderSpeed + 'ms'); //set
+
+    const heroSlider = new Swiper('.hero-slider', {
+      slidesPerView: 1,
+      navigation: {
+        nextEl: '.hero__next',
+        prevEl: '.hero__prev',
+      },
+      speed: heroSliderSpeed,
+      autoplay: {
+        delay: 1000,
+      },
+      pagination: {
+        el: '.hero__pag',
+        type: 'bullets',
+        clickable: true
+      },
+      on: {
+        init: function () {
+          const paginationBullets = document.querySelectorAll('.hero__pag .swiper-pagination-bullet');
+
+          paginationBullets.forEach(el => {
+            el.innerHTML = `<span class="hero__bar"></span>`;
+          });
+        },
+      },
+    });
+
+  </script>
 </body>
 
 </html>
