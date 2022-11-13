@@ -27,6 +27,18 @@
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 27px;
     gap: calc(var(--mission-gap) * 2);
+
+    @include tablet {
+      --mission-gap: 30px;
+    }
+
+    @include minitablet {
+      --mission-gap: 10px;
+    }
+
+    @include mobile {
+      display: block;
+    }
   }
 
   &__item {
@@ -45,23 +57,33 @@
         top: 0;
         width: 1px;
         height: 100%;
-        background-image: url("./../img/divider.svg");
+        background-image: url("../img/divider.svg");
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+
+        @include minitablet {
+          display: none;
+        }
       }
     }
 
     &--terms {
-      background-image: url("./../img/terms.svg");
+      background-image: url("../img/terms.svg");
     }
 
     &--workers {
-      background-image: url("./../img/workers.svg");
+      background-image: url("../img/workers.svg");
     }
 
     &--control {
-      background-image: url("./../img/control.svg");
+      background-image: url("../img/control.svg");
+    }
+
+    @include mobile {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
     }
   }
 

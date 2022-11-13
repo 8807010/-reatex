@@ -23,6 +23,9 @@
     line-height: 150%;
     color: var(--color-ebony);
 
+    @include minidesk {
+      font-size: 18px;
+    }
   }
 
   &__descr {
@@ -46,6 +49,9 @@
     transition: 0.3s ease-in-out;
     will-change: margin;
 
+    @include minitablet {
+      margin-bottom: 0;
+    }
   }
 
   &:focus {

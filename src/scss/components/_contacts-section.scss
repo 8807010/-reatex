@@ -1,7 +1,7 @@
 .contacts-section {
   padding-top: 80px;
   padding-bottom: 77px;
-  background-image: url("./../img/contacts-bg.jpg");
+  background-image: url("../img/contacts-bg.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -54,5 +54,9 @@
     padding: 12px 31px;
     font-size: 14px;
     letter-spacing: 0.5px;
+  }
+
+  @include mobile {
+    padding: 15px;
   }
 }

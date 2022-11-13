@@ -9,6 +9,13 @@
     padding: 20px 24px;
   }
 
+  &__image {
+    @include tablet {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
   &__title {
     margin: 0;
     margin-bottom: 13px;
@@ -87,7 +94,7 @@
 
     &--comments {
       padding-left: 24px;
-      background-image: url("./../img/comments.svg");
+      background-image: url("../img/comments.svg");
       background-position: left center;
       background-size: 16px 16px;
       background-repeat: no-repeat;

@@ -31,7 +31,7 @@ if (portfolioTabsNav) {
     if (target.classList.contains('portfolio-tabs-nav__btn')) {
       const path = target.dataset.path;
 
-      portfolioTabsBtns.forEach(el => { el.classList.remove('portfolio-tabs-nav__btn--active') });
+      portfolioTabsBtns.forEach(el => { el.classList.remove('portfolio-tabs-nav__btn--active')});
       target.classList.add('portfolio-tabs-nav__btn--active');
 
       portfolioTabsItems.forEach(el => {

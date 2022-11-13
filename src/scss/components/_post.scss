@@ -89,10 +89,15 @@
         top: 21px;
         width: 28px;
         height: 20px;
-        background-image: url("./../img/braces.svg");
+        background-image: url("../img/braces.svg");
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+      }
+
+      @include mobile {
+        padding: 0;
+        padding-top: 50px;
       }
     }
 
@@ -116,7 +121,7 @@
           top: 4px;
           width: 16px;
           height: 16px;
-          background-image: url("./../img/check-list.svg");
+          background-image: url("../img/check-list.svg");
           background-position: center;
           background-size: cover;
           background-repeat: no-repeat;

@@ -8,6 +8,18 @@
       margin-right: 35px;
     }
   }
+
+  @include tablet {
+    display: none;
+  }
+
+  &--nav {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
 }
 
 .contacts-link {
@@ -28,6 +40,10 @@
     line-height: 150%;
     color: var(--color-ebony);
     transition: color 0.3s ease-in-out;
+
+    @include minidesk {
+      font-size: 16px;
+    }
   }
 
   &:focus {
@@ -48,10 +64,10 @@
   }
 
   &--call {
-    background-image: url("./../img/phone.svg");
+    background-image: url("../img/phone.svg");
   }
 
   &--mail {
-    background-image: url("./../img/mail.svg");
+    background-image: url("../img/mail.svg");
   }
 }
