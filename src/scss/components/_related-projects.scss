@@ -3,6 +3,11 @@
   padding-bottom: 100px;
   background-color: var(--color-light);
 
+  @include tablet {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+
   &__top {
     display: flex;
     align-items: flex-end;

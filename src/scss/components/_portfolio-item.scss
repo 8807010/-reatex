@@ -60,6 +60,25 @@
   }
 
   &:hover {
+
+    // .portfolio-item__image {
+    //   transition: transform 0.3s ease;
+    //   transform: translateY(-92px);
+
+    //   @include minitablet {
+    //     transform: translateY(0)
+    //   }
+    // }
+
+    // .portfolio-item__content {
+    //   transition: transform 0.3s ease;
+    //   transform: translateY(-92px);
+
+    //   @include minitablet {
+    //     transform: translateY(0)
+    //   }
+    // }
+
     .portfolio-item__btn {
       margin-bottom: 0;
     }

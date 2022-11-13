@@ -2,6 +2,10 @@
   padding-top: 30px;
   padding-bottom: 120px;
 
+  @include tablet {
+    padding-bottom: 30px;
+  }
+
   .grid {
     @include minitablet {
       display: block;

@@ -6,6 +6,10 @@
 
     &:not(:last-child) {
       margin-right: 35px;
+
+      @include tablet {
+        margin-bottom: 20px;
+      }
     }
   }
 
