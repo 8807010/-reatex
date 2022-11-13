@@ -1,4 +1,4 @@
-const {src, dest, series, watch} = require('gulp');
+const { src, dest, series, watch } = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const babel = require('gulp-babel');
 const cleanCSS = require('gulp-clean-css');
@@ -22,8 +22,17 @@ const concat = require('gulp-concat');
 let isProd = false; // dev by default
 
 const clean = () => {
-	return del(['app/*'])
+  return del(['app/*'])
 }
+
+//deploy
+const gulp = require('gulp');
+const ghPages = require('gulp-gh-pages');
+
+gulp.task('deploy', function() {
+    return gulp.src('./app/**/*')
+        .pipe(ghPages());
+});
 
 //svg sprite
 const svgSprites = () => {
@@ -52,25 +61,25 @@ const styles = () => {
 };
 
 const stylesBackend = () => {
-	return src('./src/scss/**/*.scss')
-		.pipe(sass().on("error", notify.onError()))
+  return src('./src/scss/**/*.scss')
+    .pipe(sass().on("error", notify.onError()))
     .pipe(autoprefixer({
       cascade: false,
-		}))
-		.pipe(dest('./app/css/'))
+    }))
+    .pipe(dest('./app/css/'))
 };
 
 const scripts = () => {
-	src('./src/js/vendor/**.js')
-		.pipe(concat('vendor.js'))
-		.pipe(gulpif(isProd, uglify().on("error", notify.onError())))
-		.pipe(dest('./app/js/'))
+  src('./src/js/vendor/**.js')
+    .pipe(concat('vendor.js'))
+    .pipe(gulpif(isProd, uglify().on("error", notify.onError())))
+    .pipe(dest('./app/js/'))
   return src(
     ['./src/js/global.js', './src/js/components/**.js', './src/js/main.js'])
     .pipe(gulpif(!isProd, sourcemaps.init()))
-		.pipe(babel({
-			presets: ['@babel/env']
-		}))
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
     .pipe(concat('main.js'))
     .pipe(gulpif(isProd, uglify().on("error", notify.onError())))
     .pipe(gulpif(!isProd, sourcemaps.write('.')))
@@ -79,11 +88,11 @@ const scripts = () => {
 }
 
 const scriptsBackend = () => {
-	src('./src/js/vendor/**.js')
+  src('./src/js/vendor/**.js')
     .pipe(concat('vendor.js'))
     .pipe(gulpif(isProd, uglify().on("error", notify.onError())))
-		.pipe(dest('./app/js/'))
-	return src(['./src/js/functions/**.js', './src/js/components/**.js', './src/js/main.js'])
+    .pipe(dest('./app/js/'))
+  return src(['./src/js/functions/**.js', './src/js/components/**.js', './src/js/main.js'])
     .pipe(dest('./app/js'))
 };
 
@@ -94,14 +103,14 @@ const resources = () => {
 
 const images = () => {
   return src([
-		'./src/img/**.jpg',
-		'./src/img/**.png',
-		'./src/img/**.jpeg',
-		'./src/img/*.svg',
-		'./src/img/**/*.jpg',
-		'./src/img/**/*.png',
-		'./src/img/**/*.jpeg'
-		])
+    './src/img/**.jpg',
+    './src/img/**.png',
+    './src/img/**.jpeg',
+    './src/img/*.svg',
+    './src/img/**/*.jpg',
+    './src/img/**/*.png',
+    './src/img/**/*.jpeg'
+  ])
     .pipe(gulpif(isProd, image()))
     .pipe(dest('./app/img'))
 };
@@ -129,27 +138,28 @@ const watchFiles = () => {
   watch('./src/*.html', htmlInclude);
   watch('./src/resources/**', resources);
   watch('./src/img/*.{jpg,jpeg,png,svg}', images);
-	watch('./src/img/**/*.{jpg,jpeg,png}', images);
+  watch('./src/img/**/*.{jpg,jpeg,png}', images);
   watch('./src/img/svg/**.svg', svgSprites);
 }
 
 const cache = () => {
   return src('app/**/*.{css,js,svg,png,jpg,jpeg,woff2}', {
-    base: 'app'})
+    base: 'app'
+  })
     .pipe(rev())
     .pipe(revDel())
-		.pipe(dest('app'))
+    .pipe(dest('app'))
     .pipe(rev.manifest('rev.json'))
     .pipe(dest('app'));
 };
 
 const rewrite = () => {
   const manifest = readFileSync('app/rev.json');
-	src('app/css/*.css')
-		.pipe(revRewrite({
+  src('app/css/*.css')
+    .pipe(revRewrite({
       manifest
     }))
-		.pipe(dest('app/css'));
+    .pipe(dest('app/css'));
   return src('app/**/*.html')
     .pipe(revRewrite({
       manifest
@@ -158,11 +168,11 @@ const rewrite = () => {
 }
 
 const htmlMinify = () => {
-	return src('app/**/*.html')
-		.pipe(htmlmin({
-			collapseWhitespace: true
-		}))
-		.pipe(dest('app'));
+  return src('app/**/*.html')
+    .pipe(htmlmin({
+      collapseWhitespace: true
+    }))
+    .pipe(dest('app'));
 }
 
 const toProd = (done) => {
